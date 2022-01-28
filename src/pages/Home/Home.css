@@ -1,0 +1,74 @@
+.container{
+    max-width: 1000px;
+    margin:0 auto;
+}
+.select-box{
+    width: 1115px;
+    margin-top: 20px;
+}
+.select-box select{
+    height: 42px;
+    padding:10px;
+    line-height: 15px;
+    font-size: 16px;
+    width: 100%;
+    border:1px solid #e87817;
+    border-radius: 5px;
+    color: #535353;
+}
+.select-box :after{
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -4px;
+}
+.select-boxx{
+    width: 1115px;
+    
+}
+.select-boxx select{
+    height: 42px;
+    padding:10px;
+    line-height: 15px;
+    font-size: 16px;
+    width: 100%;
+    border:1px solid #e87817;
+    border-radius: 5px;
+    color: #535353;
+}
+.select-boxx :after{
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -4px;
+}
+.file-container{
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    margin-top: 40px;
+    /* margin-right: 500px; */
+}
+#upload-box{
+  font-size: 16px;
+  background: #dddddd;
+  border-radius: 50px;
+  box-shadow: 2px 2px 18px #dddddd;
+  outline: none;
+  width: 200%;
+  
+}
+::-webkit-file-upload-button{
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+}
+::-webkit-file-upload-button:hover{
+    background: #4f5255;
+}
+  
