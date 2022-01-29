@@ -21,7 +21,7 @@ const Home = () => {
               console.log(data)
               if (data.insertedId) {
                   Swal.fire(
-                      'Successfully Added Product',
+                      'Successfully Added Data',
                     )
                   reset()
               }
