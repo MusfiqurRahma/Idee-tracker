@@ -1,7 +1,4 @@
-import React from 'react';
-// import { Button } from 'react-bootstrap';
-// import { Col, Container, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './Home.css';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
@@ -9,6 +6,9 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const { register, handleSubmit,reset} = useForm();
     const onSubmit = data => {
       fetch('https://arcane-sands-94400.herokuapp.com/id', {
@@ -110,23 +110,47 @@ const Home = () => {
                 marginBottom:'5px'
               }} placeholder='Remarks' ></textarea>
               </Col>
-              <div className='input-group mb-3 px-2 py-2 rounded-pill shadow-sm' style={{backgroundColor:'#ddd',marginLeft:'5px'}}>
-              <input id="upload" multiple type="file" className='form-control border-rounded'/>
-                <label id="upload-label" for="upload" className='font-weight-light text-body'></label>
-                  </div>
-              <hr style={{width:'98%',marginLeft:'11px'}}/>
+              <div
+                className='input-group 
+                mb-3
+                px-2
+                py-2
+                rounded-pill
+                shadow-sm' style={{
+                backgroundColor: '#ddd',
+                marginLeft: '5px'
+              }}>
+                <div>
+              <input
+                type="file"
+                name="myImage"
+                onChange={(event) => {
+                console.log(event.target.files[0]);
+                setSelectedImage(event.target.files[0]);
+              }}
+          />
+        </div>
+       </div>
+           <hr style={{
+              width: '98%',
+              marginLeft: '11px'
+              }} />
             </Row>
             <div
-                  style={{
-                       boxSizing: 'border-box',
-                       border: '2px dashed gray',
-                       color: 'white',
-                       width: '100%',
-                       padding: '8px',
-                       marginBottom:'-8px'
-                     }}>
-                .</div>
-                <hr style={{ width: '1115px' }} />
+                style={{
+                  boxSizing: 'border-box',
+                  border: '2px dashed gray',
+                  width: '100%',
+                  padding: '8px',
+                  marginBottom:'-8px'
+         }}>
+            {selectedImage && (
+             <div>
+             <img alt="not found" width={"200px"} src={URL.createObjectURL(selectedImage)} />
+             </div>
+             )}
+            </div>
+            <hr style={{ width: '1115px' }} />
              <input type="submit" style={{
                 backgroundColor: '#0dcaf0',
                 border:'1px solid #0dcaf0',
@@ -149,7 +173,7 @@ const Home = () => {
               <Link to='/signature' style={{textDecoration:'none',color:'white'}}>Next</Link>
             </Button>
           </Container>
-        </form> 
+        </form>
       </>
     );
 };
